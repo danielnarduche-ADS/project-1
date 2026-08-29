@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsão do Tempo</title>
+  <link rel="stylesheet" href="Assets/CSS/style.css">
+</head>
+<body>
+
+  <main class="weather-card">
+    <div class="search-box">
+      <input type="text" placeholder="Type a city..." aria-label="Buscar cidade">
+      <button type="button">Search</button>
+    </div>
+
+    <section class="weather-info">
+      <h1 class="city">São Paulo, BR</h1>
+      <p class="date">Thursday, Agust 20</p>
+
+      <div class="temp-container">
+        <div class="weather-icon">☀️</div>
+        <div class="temp">25°C</div>
+        <p class="condition">Sunny</p>
+      </div>
+
+      <div class="details2" id="Daily_Info_Container">
+        <div class="detail-item">
+          <span>Max</span>
+          <span>32</span>
+        </div>
+        <div class="detail-item">
+          <span>UV Index</span>
+          <span>9</span>
+        </div>
+        <div class="detail-item">
+          <span>Min</span>
+          <span class="MinTemp">16</span>
+        </div>
+      </div>
+
+      <div class="details" id="details#1">
+        <div class="detail-item">
+          <span class="detail-label">Humidity</span>
+          <span class="detail-value">62%</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Wind</span>
+          <span class="detail-value">14 km/h</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Rainfall</span>
+          <span class="detail-value">20ml</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Chance of rain</span>
+          <span class="detail-value">60%</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="Assets/JS/main.js"></script>
+</body>
+</html>
