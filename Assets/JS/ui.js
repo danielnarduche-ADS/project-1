@@ -1,16 +1,7 @@
-'use strict'
-import { getUserLocation } from "./api"
-import { Resolving_UserLocation } from "./api"
+'use strict';
+import { Interface_Handling } from "./api";
 
-async function Interface_Handling(params) {
-    let longitude;
-    let latitude;
-    try {
-     ({longitude, latitude} = await getUserLocation())
-     console.log('Destructuring in Interface_Handling function worked!')
-    } catch (error) {
-        latitude = -23.5505;
-        longitude = -46.6333;
-    }
-}
-
+const Weather_Info = document.querySelector('.weather-info')
+const Temp_Container = document.querySelector('.temp-container')
+const Daily_Info_Container = document.querySelector('#Daily_Info_Container');
+const Details1 = document.querySelector('#details_1')

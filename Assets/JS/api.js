@@ -1,21 +1,29 @@
-'use strict';
+'use strict'
+import { getUserLocation } from "./UserLocation.js"
 
-export function getUserLocation() {
-  return new Promise((resolve, reject) => {
-    if("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-        const {latitude, longitude} = position.coords
-        latitude.toFixed(2);
-        longitude.toFixed(2);
+export async function Interface_Handling() {
+    let longitude;
+    let latitude;
+    try {
+     ({longitude, latitude} = await getUserLocation())
+     console.log('Destructuring in function Interface_Handling worked!')
+    } catch (error) {
+        console.log('Using default settings')
+        latitude = -23.5505;
+        longitude = -46.6333;
+    } // Fallback: If the user denies location permission in UserLocation.js, the promise rejects and applies the application's default coordinates.
 
-        resolve({latitude, longitude});
-      }, (error) => {
-        reject(new Error("It wasn't possible get location"));
-      });
+    try {
+        const Request = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,precipitation_sum,uv_index_max&timezone=auto&forecast_days=1`)
 
-    } else {
-      reject(new Error('Location not possible by navigator'))
+        if (!Request.ok) {
+            throw new Error(`Something went wrong :/ ${Request.status}`)
+        }
+
+        const Data = await Request.json()
+        console.log(Data)
+
+    } catch (error) {
+        console.error(error)
     }
-  })
-} //Wait the User response then hand to Resolving_UserLocation
+}
