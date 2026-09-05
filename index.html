@@ -8,55 +8,74 @@
 </head>
 <body>
 
-  <main class="weather-card">
-    <div class="search-box">
-      <input type="text" placeholder="Type a city..." aria-label="Buscar cidade">
-      <button type="button">Search</button>
+  <!-- Elemento pai principal do aplicativo -->
+  <main class="weather-card" id="app-weather-card">
+    
+    <!-- Bloco de busca (Pai interativo) -->
+    <div class="search-box" id="search-container">
+      <input type="text" id="input-city-search" placeholder="Type a city..." aria-label="Buscar cidade">
+      <button type="button" id="btn-city-search">Search</button>
     </div>
 
-    <section class="weather-info">
-      <h1 class="city">São Paulo, BR</h1>
-      <p class="date">Thursday, Agust 20</p>
+    <!-- Bloco principal de informações do clima -->
+    <section class="weather-info" id="weather-info-section">
+      
+      <!-- Cabeçalho com local e data -->
+      <header class="location-header" id="location-header">
+        <h1 class="city" id="text-city-name">São Paulo, BR</h1>
+        <p class="date" id="text-current-date">Thursday, August 20</p>
+      </header>
 
-      <div class="temp-container">
-        <div class="weather-icon">☀️</div>
-        <div class="temp">25°C</div>
-        <p class="condition">Sunny</p>
+      <!-- Destaque de temperatura -->
+      <div class="temp-container" id="main-temp-container">
+        <div class="weather-icon" id="icon-weather-condition">☀️</div>
+        <div class="temp" id="text-main-temp">25°C</div>
+        <p class="condition" id="text-weather-condition">Sunny</p>
       </div>
 
-      <div class="details2" id="Daily_Info_Container">
-        <div class="detail-item" id="1">
-          <span>Max</span>
-          <span class="MaxTemp"></span>
+      <!-- Bloco 1: Indicadores Diários (Pai) -->
+      <div class="details2" id="daily-summary-container">
+        <!-- Itens com IDs/Data Attributes específicos para diferenciação exata -->
+        <div class="detail-item" id="daily-item-max-temp" data-detail="max-temp">
+          <span class="detail-label">Max</span>
+          <span class="MaxTemp" id="value-max-temp">--</span>
         </div>
-        <div class="detail-item" id="2">
-          <span>UV Index</span>
-          <span class="UV_Index"></span>
+
+        <div class="detail-item" id="daily-item-uv-index" data-detail="uv-index">
+          <span class="detail-label">UV Index</span>
+          <span class="UV_Index" id="value-uv-index">--</span>
         </div>
-        <div class="detail-item" id="3">
-          <span>Min</span>
-          <span class="MinTemp"></span>
+
+        <div class="detail-item" id="daily-item-min-temp" data-detail="min-temp">
+          <span class="detail-label">Min</span>
+          <span class="MinTemp" id="value-min-temp">--</span>
         </div>
       </div>
 
-      <div class="details" id="details_1">
-        <div class="detail-item" id="1">
+      <!-- Bloco 2: Métricas Detalhadas do Clima (Pai) -->
+      <div class="details" id="detailed-metrics-container">
+        <!-- Mesmo se repetindo, cada item possui identificador único e valor atribuído -->
+        <div class="detail-item" id="metric-item-humidity" data-metric="humidity">
           <span class="detail-label">Humidity</span>
-          <span class="detail-value"></span>
+          <span class="detail-value" id="value-humidity">--</span>
         </div>
-        <div class="detail-item" id="2">
+
+        <div class="detail-item" id="metric-item-wind" data-metric="wind">
           <span class="detail-label">Wind</span>
-          <span class="detail-value"></span>
+          <span class="detail-value" id="value-wind">--</span>
         </div>
-        <div class="detail-item" id="3">
+
+        <div class="detail-item" id="metric-item-rainfall" data-metric="rainfall">
           <span class="detail-label">Rainfall</span>
-          <span class="detail-value"></span>
+          <span class="detail-value" id="value-rainfall">--</span>
         </div>
-        <div class="detail-item" id="4">
+
+        <div class="detail-item" id="metric-item-rain-chance" data-metric="rain-chance">
           <span class="detail-label">Chance of rain</span>
-          <span class="detail-value"></span>
+          <span class="detail-value" id="value-rain-chance">--</span>
         </div>
       </div>
+
     </section>
   </main>
 
